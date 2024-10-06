@@ -28,6 +28,16 @@ class MyApp extends StatelessWidget {
                   borderSide: const BorderSide(
                     color: Colors.grey,
                   )),
+              errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(2),
+                  borderSide: const BorderSide(
+                    color: Colors.red,
+                  )),
+              focusedErrorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(2),
+                  borderSide: const BorderSide(
+                    color: Colors.red,
+                  )),
               labelStyle: Theme.of(context).textTheme.titleSmall,
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(2),
@@ -36,11 +46,6 @@ class MyApp extends StatelessWidget {
                   )))),
       onGenerateRoute: generateRoute,
       initialRoute: AppRouts.loginPage,
-      home: const Column(
-        children: [
-          Text('Hello World'),
-        ],
-      ),
     );
   }
 }
