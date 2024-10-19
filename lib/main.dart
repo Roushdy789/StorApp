@@ -1,8 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:storeapp/services/auth.dart';
 import 'package:storeapp/utilities/router.dart';
 import 'package:storeapp/utilities/routs.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -11,41 +16,44 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Ecommerce App",
-      theme: ThemeData(
-          scaffoldBackgroundColor: const Color(0xFFF8F8F8),
-          primaryColor: const Color(0xFFDB3022),
-          inputDecorationTheme: InputDecorationTheme(
-              disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(2),
-                  borderSide: const BorderSide(
-                    color: Colors.grey,
-                  )),
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(2),
-                  borderSide: const BorderSide(
-                    color: Colors.grey,
-                  )),
-              errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(2),
-                  borderSide: const BorderSide(
-                    color: Colors.red,
-                  )),
-              focusedErrorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(2),
-                  borderSide: const BorderSide(
-                    color: Colors.red,
-                  )),
-              labelStyle: Theme.of(context).textTheme.titleSmall,
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(2),
-                  borderSide: const BorderSide(
-                    color: Colors.grey,
-                  )))),
-      onGenerateRoute: generateRoute,
-      initialRoute: AppRouts.loginPage,
+    return Provider<AuthBase>(
+      create: (_) => Auth(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Ecommerce App",
+        theme: ThemeData(
+            scaffoldBackgroundColor: const Color(0xFFF8F8F8),
+            primaryColor: const Color(0xFFDB3022),
+            inputDecorationTheme: InputDecorationTheme(
+                disabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(2),
+                    borderSide: const BorderSide(
+                      color: Colors.grey,
+                    )),
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(2),
+                    borderSide: const BorderSide(
+                      color: Colors.grey,
+                    )),
+                errorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(2),
+                    borderSide: const BorderSide(
+                      color: Colors.red,
+                    )),
+                focusedErrorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(2),
+                    borderSide: const BorderSide(
+                      color: Colors.red,
+                    )),
+                labelStyle: Theme.of(context).textTheme.titleSmall,
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(2),
+                    borderSide: const BorderSide(
+                      color: Colors.grey,
+                    )))),
+        onGenerateRoute: generateRoute,
+        initialRoute: AppRouts.loginPage,
+      ),
     );
   }
 }

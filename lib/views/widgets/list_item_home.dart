@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:storeapp/Models/product.dart';
-import 'package:storeapp/utilities/assest.dart';
 
 class ListItemHome extends StatelessWidget {
   const ListItemHome({super.key, required this.product});
@@ -9,7 +7,7 @@ class ListItemHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: BoxDecoration(),
+      decoration: const BoxDecoration(),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

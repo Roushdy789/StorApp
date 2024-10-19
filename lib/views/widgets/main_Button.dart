@@ -17,7 +17,7 @@ class MainButton extends StatelessWidget {
           onPressed: ontap,
           child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
           )),
     );
