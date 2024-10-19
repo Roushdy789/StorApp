@@ -73,6 +73,7 @@ class _AuthPageState extends State<AuthPage> {
                         hintText: "Enter your password",
                       )),
                   const SizedBox(
+
                     height: 16,
                   ),
                   if (_authType == AuthFromType.login)
